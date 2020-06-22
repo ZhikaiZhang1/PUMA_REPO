@@ -1,0 +1,39 @@
+19:30:09 **** Incremental Build of configuration Debug for project Puma ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32H743xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/STM32H7xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32h7xx.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32H743xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/STM32H7xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32h7xx.d" -MT"Core/Src/system_stm32h7xx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32h7xx.o"
+arm-none-eabi-gcc -o "Puma.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\STM32H743ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Puma.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Puma.elf
+ 
+arm-none-eabi-size   Puma.elf 
+arm-none-eabi-objdump -h -S  Puma.elf  > "Puma.list"
+   text	   data	    bss	    dec	    hex	filename
+  34832	    216	   3160	  38208	   9540	Puma.elf
+arm-none-eabi-objcopy  -O binary  Puma.elf  "Puma.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Puma.bin
+ 
+Finished building: Puma.list
+ 
+19:31:25 **** Incremental Build of configuration Debug for project Puma ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32H743xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/STM32H7xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Puma.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\STM32H743ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Puma.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Puma.elf
+ 
+arm-none-eabi-objdump -h -S  Puma.elf  > "Puma.list"
+arm-none-eabi-objcopy  -O binary  Puma.elf  "Puma.bin"
+arm-none-eabi-size   Puma.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34832	    216	   3160	  38208	   9540	Puma.elf
+Finished building: default.size.stdout
+Finished building: Puma.bin
+ 
+ 
+Finished building: Puma.list
+ 
+
+**** Build of configuration Debug for project STM32H743ZI_Nucleo ****
+
+Nothing to build for project STM32H743ZI_Nucleo
