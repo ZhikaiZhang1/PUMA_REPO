@@ -62,10 +62,6 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOH
-#define RMII_MDC_Pin GPIO_PIN_1
-#define RMII_MDC_GPIO_Port GPIOC
-#define RMII_REF_CLK_Pin GPIO_PIN_1
-#define RMII_REF_CLK_GPIO_Port GPIOA
 #define RMII_MDIO_Pin GPIO_PIN_2
 #define RMII_MDIO_GPIO_Port GPIOA
 #define RMII_RXD0_Pin GPIO_PIN_4
@@ -86,8 +82,6 @@ void Error_Handler(void);
 #define USB_OverCurrent_GPIO_Port GPIOG
 #define USB_SOF_Pin GPIO_PIN_8
 #define USB_SOF_GPIO_Port GPIOA
-#define USB_VBUS_Pin GPIO_PIN_9
-#define USB_VBUS_GPIO_Port GPIOA
 #define USB_ID_Pin GPIO_PIN_10
 #define USB_ID_GPIO_Port GPIOA
 #define USB_DM_Pin GPIO_PIN_11
