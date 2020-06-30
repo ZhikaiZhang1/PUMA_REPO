@@ -15341,3 +15341,230 @@
 2020-06-30 12:42:21,558 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2539mS.
 2020-06-30 12:42:21,561 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 2mS.
 2020-06-30 12:42:21,586 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-06-30 13:01:00,150 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:01:00,202 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:01:00,516 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:01:00,561 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:01:36,975 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:01:37,019 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:01:37,331 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:01:37,378 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:01:42,332 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:01:42,388 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:01:42,652 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:01:42,704 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:01:45,897 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:01:45,941 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:01:46,220 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:01:46,259 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:02:07,038 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:02:07,094 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:02:07,436 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:02:07,478 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:02:12,226 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:02:12,270 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:02:12,593 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:02:12,635 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:06:52,218 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:06:52,270 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:06:52,570 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:06:52,612 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:06:55,675 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:06:55,719 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:06:56,069 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:06:56,117 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:08:43,225 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:08:43,269 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:08:43,401 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:08:43,441 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:08:43,701 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:08:43,739 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:09:54,127 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 841499488 Bytes (1073741824)
+2020-06-30 13:09:57,419 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 859328112 Bytes (1073741824)
+2020-06-30 13:09:57,851 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 420580704 Bytes (1073741824)
+2020-06-30 13:09:58,086 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7H7
+2020-06-30 13:09:58,086 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8H7
+2020-06-30 13:09:58,086 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8H7
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8H7
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8H7
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USB_DEVICE
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RCC
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USB_OTG_FS
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: CORTEX_M7
+2020-06-30 13:09:58,087 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-06-30 13:09:58,090 [INFO] CodeGenerator:603 - code generatio: config db path: C:\ST\STM32CubeIDE_1.0.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.6.1.202004052303\\db\
+2020-06-30 13:09:58,618 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\license.tmp_save
+2020-06-30 13:09:58,690 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\license.tmp
+2020-06-30 13:09:58,801 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\gpio.tmp_save
+2020-06-30 13:09:58,900 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\gpio.tmp
+2020-06-30 13:09:58,906 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:09:59,176 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2020-06-30 13:09:59,306 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_vars.tmp
+2020-06-30 13:09:59,353 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2020-06-30 13:09:59,475 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_inc.tmp
+2020-06-30 13:09:59,559 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2020-06-30 13:09:59,684 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2020-06-30 13:09:59,731 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2020-06-30 13:09:59,853 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_Msp.tmp
+2020-06-30 13:10:00,932 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-30 13:10:00,936 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for CORTEX_M7
+2020-06-30 13:10:00,937 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:10:00,973 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\cortex.tmp_save
+2020-06-30 13:10:01,044 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\cortex.tmp
+2020-06-30 13:10:01,051 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-30 13:10:01,051 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-06-30 13:10:01,055 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:10:01,058 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-30 13:10:01,059 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-06-30 13:10:01,060 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:10:01,064 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-30 13:10:01,076 [INFO] Middleware:1103 - No code input for Bsp Dependency
+2020-06-30 13:10:01,132 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usb_device.c_save
+2020-06-30 13:10:01,231 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usb_device.c
+2020-06-30 13:10:01,261 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usb_device.h_save
+2020-06-30 13:10:01,340 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usb_device.h
+2020-06-30 13:10:01,369 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\Target\usbd_conf.h_save
+2020-06-30 13:10:01,466 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\Target\usbd_conf.h
+2020-06-30 13:10:01,508 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\Target\usbd_conf.c_save
+2020-06-30 13:10:01,626 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\Target\usbd_conf.c
+2020-06-30 13:10:01,654 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_desc.h_save
+2020-06-30 13:10:01,747 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_desc.h
+2020-06-30 13:10:01,813 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_desc.c_save
+2020-06-30 13:10:02,018 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_desc.c
+2020-06-30 13:10:02,119 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_cdc_if.h_save
+2020-06-30 13:10:02,411 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_cdc_if.h
+2020-06-30 13:10:02,527 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_cdc_if.c_save
+2020-06-30 13:10:02,802 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_cdc_if.c
+2020-06-30 13:10:02,819 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-06-30 13:10:02,819 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:10:02,890 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\stm32h7xx_it.c_save
+2020-06-30 13:10:03,277 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\stm32h7xx_it.c
+2020-06-30 13:10:03,315 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\stm32h7xx_it.h_save
+2020-06-30 13:10:03,458 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\stm32h7xx_it.h
+2020-06-30 13:10:03,733 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\stm32h7xx_hal_msp.c_save
+2020-06-30 13:10:03,974 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\stm32h7xx_hal_msp.c
+2020-06-30 13:10:03,999 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\system.tmp_save
+2020-06-30 13:10:04,059 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\system.tmp
+2020-06-30 13:10:04,106 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\stm32h7xx_hal_conf.h_save
+2020-06-30 13:10:04,230 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\stm32h7xx_hal_conf.h
+2020-06-30 13:10:04,253 [WARN] IPConfigManager:2701 - IP not found : TIM
+2020-06-30 13:10:04,253 [WARN] IPConfigManager:2701 - IP not found : gpio
+2020-06-30 13:10:04,253 [WARN] CodeGenerator:2649 - IP not found : TIM
+2020-06-30 13:10:04,253 [WARN] CodeGenerator:2649 - IP not found : gpio
+2020-06-30 13:10:04,291 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\main.h_save
+2020-06-30 13:10:04,387 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\main.h
+2020-06-30 13:10:04,432 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\main.c_save
+2020-06-30 13:10:04,623 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\main.c
+2020-06-30 13:10:05,960 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 705mS.
+2020-06-30 13:10:05,980 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-06-30 13:10:06,430 [INFO] ConfigFileManager:1066 - The Die is : DIE450
+2020-06-30 13:10:09,902 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 3922mS.
+2020-06-30 13:10:09,906 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 3mS.
+2020-06-30 13:10:09,955 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 2mS.
+2020-06-30 13:30:02,955 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:38:36,449 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:38:39,394 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:38:39,429 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:39:02,676 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:39:02,715 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:39:38,000 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:39:48,161 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:39:48,195 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:39:48,513 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM1, TIM2, TIM3, TIM5, USART1, USART3, USB_OTG_FS]
+2020-06-30 13:39:48,566 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-06-30 13:39:56,142 [WARN] MainPanel:241 - <html><b><center>Warning: This IP has no parameters to be configured<br></b></html>
+2020-06-30 13:40:39,632 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 645220672 Bytes (1073741824)
+2020-06-30 13:40:43,025 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 662419656 Bytes (1073741824)
+2020-06-30 13:40:43,346 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 762036424 Bytes (1073741824)
+2020-06-30 13:40:43,664 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7H7
+2020-06-30 13:40:43,664 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8H7
+2020-06-30 13:40:43,664 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8H7
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8H7
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8H7
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USB_DEVICE
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RCC
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USB_OTG_FS
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: CORTEX_M7
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DEBUG
+2020-06-30 13:40:43,665 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-06-30 13:40:43,668 [INFO] CodeGenerator:603 - code generatio: config db path: C:\ST\STM32CubeIDE_1.0.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.6.1.202004052303\\db\
+2020-06-30 13:40:44,189 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\license.tmp_save
+2020-06-30 13:40:44,261 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\license.tmp
+2020-06-30 13:40:44,362 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\gpio.tmp_save
+2020-06-30 13:40:44,443 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\gpio.tmp
+2020-06-30 13:40:44,450 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:40:44,558 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2020-06-30 13:40:44,613 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_vars.tmp
+2020-06-30 13:40:44,643 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2020-06-30 13:40:44,724 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_inc.tmp
+2020-06-30 13:40:44,769 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2020-06-30 13:40:44,952 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2020-06-30 13:40:44,994 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2020-06-30 13:40:45,150 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\usb_otg_fs_Msp.tmp
+2020-06-30 13:40:45,229 [WARN] IPConfigManager:90 - WARNING: Missing Config File for DEBUG ip!!
+2020-06-30 13:40:46,085 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-30 13:40:46,086 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for CORTEX_M7
+2020-06-30 13:40:46,086 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:40:46,109 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\cortex.tmp_save
+2020-06-30 13:40:46,169 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\cortex.tmp
+2020-06-30 13:40:46,174 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-30 13:40:46,175 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DEBUG
+2020-06-30 13:40:46,176 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:40:46,177 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-30 13:40:46,178 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-06-30 13:40:46,179 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:40:46,181 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-30 13:40:46,182 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-06-30 13:40:46,183 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:40:46,186 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-30 13:40:46,192 [INFO] Middleware:1103 - No code input for Bsp Dependency
+2020-06-30 13:40:46,231 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usb_device.c_save
+2020-06-30 13:40:46,320 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usb_device.c
+2020-06-30 13:40:46,357 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usb_device.h_save
+2020-06-30 13:40:46,463 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usb_device.h
+2020-06-30 13:40:46,492 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\Target\usbd_conf.h_save
+2020-06-30 13:40:46,592 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\Target\usbd_conf.h
+2020-06-30 13:40:46,636 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\Target\usbd_conf.c_save
+2020-06-30 13:40:46,765 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\Target\usbd_conf.c
+2020-06-30 13:40:46,804 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_desc.h_save
+2020-06-30 13:40:46,880 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_desc.h
+2020-06-30 13:40:46,924 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_desc.c_save
+2020-06-30 13:40:47,030 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_desc.c
+2020-06-30 13:40:47,073 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_cdc_if.h_save
+2020-06-30 13:40:47,159 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_cdc_if.h
+2020-06-30 13:40:47,203 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_cdc_if.c_save
+2020-06-30 13:40:47,312 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\USB_DEVICE\App\usbd_cdc_if.c
+2020-06-30 13:40:47,322 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-06-30 13:40:47,323 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-30 13:40:47,367 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\stm32h7xx_it.c_save
+2020-06-30 13:40:47,528 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\stm32h7xx_it.c
+2020-06-30 13:40:47,558 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\stm32h7xx_it.h_save
+2020-06-30 13:40:47,653 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\stm32h7xx_it.h
+2020-06-30 13:40:48,021 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\stm32h7xx_hal_msp.c_save
+2020-06-30 13:40:48,258 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\stm32h7xx_hal_msp.c
+2020-06-30 13:40:48,299 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\system.tmp_save
+2020-06-30 13:40:48,406 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\MXTmpFiles\system.tmp
+2020-06-30 13:40:48,454 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\stm32h7xx_hal_conf.h_save
+2020-06-30 13:40:48,651 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\stm32h7xx_hal_conf.h
+2020-06-30 13:40:48,693 [WARN] IPConfigManager:2701 - IP not found : TIM
+2020-06-30 13:40:48,693 [WARN] IPConfigManager:2701 - IP not found : gpio
+2020-06-30 13:40:48,696 [WARN] CodeGenerator:2649 - IP not found : TIM
+2020-06-30 13:40:48,696 [WARN] CodeGenerator:2649 - IP not found : gpio
+2020-06-30 13:40:48,749 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\main.h_save
+2020-06-30 13:40:48,866 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Inc\main.h
+2020-06-30 13:40:48,919 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\main.c_save
+2020-06-30 13:40:49,175 [INFO] CodeEngine:206 - Generated code: C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\Core\Src\main.c
+2020-06-30 13:40:50,117 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 488mS.
+2020-06-30 13:40:50,129 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-06-30 13:40:50,404 [INFO] ConfigFileManager:1066 - The Die is : DIE450
+2020-06-30 13:40:52,747 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2618mS.
+2020-06-30 13:40:52,750 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 2mS.
+2020-06-30 13:40:52,777 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.

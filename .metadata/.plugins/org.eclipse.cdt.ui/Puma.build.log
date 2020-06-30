@@ -1,10 +1,24 @@
-13:20:13 **** Incremental Build of configuration Debug for project Puma ****
+14:07:20 **** Incremental Build of configuration Debug for project Puma ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32H743xx -DDEBUG -c -I../USB_DEVICE/Target -I../Drivers/CMSIS/Include -I../Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../USB_DEVICE/App -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:372:8: warning: unused variable 'timer_tester' [-Wunused-variable]
+  char* timer_tester = "timed";
+        ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "Puma.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\STM32H743ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Puma.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Puma.elf
+ 
+arm-none-eabi-objdump -h -S  Puma.elf  > "Puma.list"
+arm-none-eabi-objcopy  -O binary  Puma.elf  "Puma.bin"
 arm-none-eabi-size   Puma.elf 
    text	   data	    bss	    dec	    hex	filename
-  56156	    500	   8808	  65464	   ffb8	Puma.elf
+  56268	    500	   8808	  65576	  10028	Puma.elf
 Finished building: default.size.stdout
+Finished building: Puma.bin
+ 
+ 
+Finished building: Puma.list
  
 
-13:20:19 Build Finished. 0 errors, 0 warnings. (took 5s.977ms)
+14:07:26 Build Finished. 0 errors, 1 warnings. (took 5s.991ms)
 

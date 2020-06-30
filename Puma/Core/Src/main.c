@@ -336,20 +336,22 @@ PUTCHAR_PROTOTYPE
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	int j;
-	for (j = 0; j < NUM_JOINTS; j++){
-		if (j <3){
-			joint_speed[j] = (double)delta_pos[j] *2.0*3.1415926/REV_COUNT_1/0.01*2.0;
+	if (htim == &htim7){
+		for (j = 0; j < NUM_JOINTS; j++){
+			if (j <3){
+				joint_speed[j] = (double)delta_pos[j] *2.0*3.1415926/REV_COUNT_1/0.01*2.0;
+			}
+			else if (j < 5){
+				joint_speed[j] = (double)delta_pos[j] *2.0*3.1415926/REV_COUNT_2/0.01*2.0;
+			}
+			else{
+				joint_speed[j] = (double)delta_pos[j] *2.0*3.1415926/REV_COUNT_3/0.01*2.0;
+			}
+			delta_pos[j] = 0;
 		}
-		else if (j < 5){
-			joint_speed[j] = (double)delta_pos[j] *2.0*3.1415926/REV_COUNT_2/0.01*2.0;
-		}
-		else{
-			joint_speed[j] = (double)delta_pos[j] *2.0*3.1415926/REV_COUNT_3/0.01*2.0;
-		}
-		delta_pos[j] = 0;
-	}
 
-	need_control = true;
+		need_control = true;
+	}
 }
 
 void Joint_controller(bool homing){
@@ -449,8 +451,8 @@ int main(void)
 	  if (need_control){
 		  Joint_controller(false);
 		  need_control = false;
-		  CDC_Transmit_FS((uint8_t*)timer_tester, strlen(timer_tester));
-		  HAL_Delay(1);
+		  //CDC_Transmit_FS((uint8_t*)timer_tester, strlen(timer_tester));
+		  //HAL_Delay(1);
 	  }
 
 	  //HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), 100);
@@ -788,7 +790,12 @@ static void MX_TIM7_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM7_Init 2 */
-
+  /*##-2- Start the TIM Base generation in interrupt mode ####################*/
+  if (HAL_TIM_Base_Start_IT(&htim7) != HAL_OK)
+  {
+    /* Starting Error */
+    Error_Handler();
+  }
   /* USER CODE END TIM7_Init 2 */
 
 }
@@ -944,8 +951,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA0 PA1 PA13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_13;
+  /*Configure GPIO pins : PA0 PA1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -999,6 +1006,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(USB_OverCurrent_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PC11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PD3 */
   GPIO_InitStruct.Pin = GPIO_PIN_3;
