@@ -1,10 +1,10 @@
-12:48:27 **** Incremental Build of configuration Debug for project Puma ****
+13:20:13 **** Incremental Build of configuration Debug for project Puma ****
 make -j8 all 
 arm-none-eabi-size   Puma.elf 
    text	   data	    bss	    dec	    hex	filename
-  56124	    500	   8808	  65432	   ff98	Puma.elf
+  56156	    500	   8808	  65464	   ffb8	Puma.elf
 Finished building: default.size.stdout
  
 
-12:48:31 Build Finished. 0 errors, 0 warnings. (took 3s.608ms)
+13:20:19 Build Finished. 0 errors, 0 warnings. (took 5s.977ms)
 

@@ -106,77 +106,57 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		GPIO_TypeDef* port;
 		uint16_t  pin_num;
     }PINS;*/
-	//pins: 0,1,2,3,4,7 - PA0(PC10)y, PA1(PD5)y, PB2(PA9)y, PE3(PD6)y, PD4(PC11)y, PD7(PC12)y
+	//pins: 0,1,2,3,4,7 - PA0(PC10)y, PA1(PD5)y, PB2(PC7)y, PE3(PE4)y, PD4(PD3)y, PD7(PE2)y
 	// HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 	switch (GPIO_Pin){
 	case GPIO_PIN_0:
-		if (val_encoderA[0] ^ val_encoderB[0]){
-			motor_steps[0] ++;
-			delta_pos[0] ++;
-		}
-		else{
-			motor_steps[0] --;
-			delta_pos[0] --;
-		}
+		 Lstate[0] = HAL_GPIO_ReadPin(encoders[0].port, encoders[0].pin_num);
+		  if((val_encoderA[0] == LOW) && Lstate[0]==HIGH)
+		  {
+			val_encoderB[0] = HAL_GPIO_ReadPin(encoders[1].port, encoders[1].pin_num);
+		    if(val_encoderB[0] == LOW && direction[0])
+		    {
+		      direction[0] = false; //Reverse
+		    }
+		    else if(val_encoderB[0] == HIGH && !direction[0])
+		    {
+		    	direction[0] = true;  //Forward
+		    }
+		  }
+		  val_encoderA[0] = Lstate[0];
 
-		val_encoderA[0] = HAL_GPIO_ReadPin(encoders[0].port, encoders[0].pin_num);
+		  if(!direction[0]){
+			  motor_steps[0]++;
+		  }
+		  else{
+			  motor_steps[0]--;
+		  }
 		break;
-	case GPIO_PIN_10:
-		val_encoderB[0] = HAL_GPIO_ReadPin(encoders[1].port, encoders[1].pin_num);
-		if (val_encoderA[0] ^ val_encoderB[0]){
-			motor_steps[0] ++;
-			delta_pos[0] ++;
-		}
-		else{
-			motor_steps[0] --;
-			delta_pos[0] --;
-		}
-		break;
+
 	case GPIO_PIN_1:
-		if (val_encoderA[1] ^ val_encoderB[1]){
-			motor_steps[1] ++;
-			delta_pos[1] ++;
-		}
-		else{
-			motor_steps[1] --;
-			delta_pos[1] --;
-		}
-		val_encoderA[1] = HAL_GPIO_ReadPin(encoders[2].port, encoders[2].pin_num);
-		break;
-	case GPIO_PIN_5:
-		val_encoderB[1] = HAL_GPIO_ReadPin(encoders[3].port, encoders[3].pin_num);
-		if (val_encoderA[1] ^ val_encoderB[1]){
-			motor_steps[1] ++;
-			delta_pos[1] ++;
-		}
-		else{
-			motor_steps[1] --;
-			delta_pos[1] --;
-		}
-		break;
-	/*case GPIO_PIN_2:
-		if (val_encoderA[2] ^ val_encoderB[2]){
-			motor_steps[2] ++;
-			delta_pos[2] ++;
+		 Lstate[1] = HAL_GPIO_ReadPin(encoders[2].port, encoders[2].pin_num);
+		  if((val_encoderA[1] == LOW) && Lstate[1]==HIGH)
+		  {
+			val_encoderB[1] = HAL_GPIO_ReadPin(encoders[3].port, encoders[3].pin_num);
+		    if(val_encoderB[1] == LOW && direction[1])
+		    {
+		      direction[1] = false; //Reverse
+		    }
+		    else if(val_encoderB[1] == HIGH && !direction[1])
+		    {
+		    	direction[1] = true;  //Forward
+		    }
+		  }
+		  val_encoderA[1] = Lstate[1];
 
-		}
-		else{
-			motor_steps[2] --;
-			delta_pos[2] --;
-		}
-		val_encoderA[2] = HAL_GPIO_ReadPin(encoders[4].port, encoders[4].pin_num);
+		  if(!direction[1]){
+			  motor_steps[1]++;
+		  }
+		  else{
+			  motor_steps[1]--;
+		  }
 		break;
-	case GPIO_PIN_9:
-		val_encoderB[2] = HAL_GPIO_ReadPin(encoders[5].port, encoders[5].pin_num);
-		if (val_encoderA[2] ^ val_encoderB[2]){
-			motor_steps[2] ++;
-			delta_pos[2] ++;
-		}
-		else{
-			motor_steps[2] --;
-			delta_pos[2] --;
-		}
-		break;*/
+
 	case GPIO_PIN_2:
 		 Lstate[2] = HAL_GPIO_ReadPin(encoders[4].port, encoders[4].pin_num);
 		  if((val_encoderA[2] == LOW) && Lstate[2]==HIGH)
@@ -201,70 +181,73 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		  }
 		break;
 	case GPIO_PIN_3:
-		if (val_encoderA[3] ^ val_encoderB[3]){
-			motor_steps[3] ++;
-			delta_pos[3] ++;
-		}
-		else{
-			motor_steps[3] --;
-			delta_pos[3] --;
-		}
-		val_encoderA[3] = HAL_GPIO_ReadPin(encoders[6].port, encoders[6].pin_num);
-		break;
-	case GPIO_PIN_6:
-		val_encoderB[3] = HAL_GPIO_ReadPin(encoders[7].port, encoders[7].pin_num);
-		if (val_encoderA[3] ^ val_encoderB[3]){
-			motor_steps[3] ++;
-			delta_pos[3] ++;
-		}
-		else{
-			motor_steps[3] --;
-			delta_pos[3] --;
-		}
+		 Lstate[3] = HAL_GPIO_ReadPin(encoders[6].port, encoders[6].pin_num);
+		  if((val_encoderA[3] == LOW) && Lstate[3]==HIGH)
+		  {
+			val_encoderB[3] = HAL_GPIO_ReadPin(encoders[7].port, encoders[7].pin_num);
+		    if(val_encoderB[3] == LOW && direction[3])
+		    {
+		      direction[3] = false; //Reverse
+		    }
+		    else if(val_encoderB[3] == HIGH && !direction[3])
+		    {
+		    	direction[3] = true;  //Forward
+		    }
+		  }
+		  val_encoderA[3] = Lstate[3];
+
+		  if(!direction[3]){
+			  motor_steps[3]++;
+		  }
+		  else{
+			  motor_steps[3]--;
+		  }
 		break;
 	case GPIO_PIN_4:
-		if (val_encoderA[4] ^ val_encoderB[4]){
-			motor_steps[4] ++;
-			delta_pos[4] ++;
-		}
-		else{
-			motor_steps[4] --;
-			delta_pos[4] --;
-		}
-		val_encoderA[4] = HAL_GPIO_ReadPin(encoders[8].port, encoders[8].pin_num);
-		break;
-	case GPIO_PIN_11:
-		val_encoderB[4] = HAL_GPIO_ReadPin(encoders[9].port, encoders[9].pin_num);
-		if (val_encoderA[4] ^ val_encoderB[4]){
-			motor_steps[4] ++;
-			delta_pos[4] ++;
-		}
-		else{
-			motor_steps[4] --;
-			delta_pos[4] --;
-		}
+		 Lstate[4] = HAL_GPIO_ReadPin(encoders[8].port, encoders[9].pin_num);
+		  if((val_encoderA[4] == LOW) && Lstate[4]==HIGH)
+		  {
+			val_encoderB[4] = HAL_GPIO_ReadPin(encoders[9].port, encoders[9].pin_num);
+		    if(val_encoderB[4] == LOW && direction[4])
+		    {
+		      direction[4] = false; //Reverse
+		    }
+		    else if(val_encoderB[4] == HIGH && !direction[4])
+		    {
+		    	direction[4] = true;  //Forward
+		    }
+		  }
+		  val_encoderA[4] = Lstate[4];
+
+		  if(!direction[4]){
+			  motor_steps[4]++;
+		  }
+		  else{
+			  motor_steps[4]--;
+		  }
 		break;
 	case GPIO_PIN_7:
-		if (val_encoderA[5] ^ val_encoderB[5]){
-			motor_steps[5] ++;
-			delta_pos[5] ++;
-		}
-		else{
-			motor_steps[5] --;
-			delta_pos[5] --;
-		}
-		val_encoderA[5] = HAL_GPIO_ReadPin(encoders[10].port, encoders[10].pin_num);
-		break;
-	case GPIO_PIN_12:
-		val_encoderB[5] = HAL_GPIO_ReadPin(encoders[11].port, encoders[11].pin_num);
-		if (val_encoderA[5] ^ val_encoderB[5]){
-			motor_steps[5] ++;
-			delta_pos[5] ++;
-		}
-		else{
-			motor_steps[5] --;
-			delta_pos[5] --;
-		}
+		 Lstate[5] = HAL_GPIO_ReadPin(encoders[10].port, encoders[10].pin_num);
+		  if((val_encoderA[5] == LOW) && Lstate[5]==HIGH)
+		  {
+			val_encoderB[5] = HAL_GPIO_ReadPin(encoders[11].port, encoders[11].pin_num);
+		    if(val_encoderB[5] == LOW && direction[5])
+		    {
+		      direction[5] = false; //Reverse
+		    }
+		    else if(val_encoderB[5] == HIGH && !direction[5])
+		    {
+		    	direction[5] = true;  //Forward
+		    }
+		  }
+		  val_encoderA[5] = Lstate[5];
+
+		  if(!direction[5]){
+			  motor_steps[5]++;
+		  }
+		  else{
+			  motor_steps[5]--;
+		  }
 		break;
 	default:
 		break;
@@ -388,7 +371,7 @@ int main(void)
 	char one_motor[10];
 	char print_string[60];
 	int i;
-	//pins: 0,1,2,3,4,7 - PA0(PC10)y, PA1(PD5)y, PB2(PA9)y, PE3(PD6)y, PD4(PC11)y, PD7(PC12)y
+	//pins: 0,1,2,3,4,7 - PA0(PC10)y, PA1(PD5)y, PB2(PC7)y, PE3(PE4)y, PD4(PD3)y, PD7(PE2)y
 	// HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 	encoders[0].port = GPIOA; encoders[0].pin_num = GPIO_PIN_0;
 	encoders[1].port = GPIOC; encoders[1].pin_num = GPIO_PIN_10;
@@ -397,11 +380,11 @@ int main(void)
 	encoders[4].port = GPIOB; encoders[4].pin_num = GPIO_PIN_2;
 	encoders[5].port = GPIOC; encoders[5].pin_num = GPIO_PIN_7;
 	encoders[6].port = GPIOE; encoders[6].pin_num = GPIO_PIN_3;
-	encoders[7].port = GPIOD; encoders[7].pin_num = GPIO_PIN_6;
+	encoders[7].port = GPIOE; encoders[7].pin_num = GPIO_PIN_4;
 	encoders[8].port = GPIOD; encoders[8].pin_num = GPIO_PIN_4;
-	encoders[9].port = GPIOC; encoders[9].pin_num = GPIO_PIN_11;
+	encoders[9].port = GPIOD; encoders[9].pin_num = GPIO_PIN_3;
 	encoders[10].port = GPIOD; encoders[10].pin_num = GPIO_PIN_7;
-    encoders[11].port = GPIOC; encoders[11].pin_num = GPIO_PIN_12;
+    encoders[11].port = GPIOE; encoders[11].pin_num = GPIO_PIN_2;
 
     for(i = 0; i < NUM_JOINTS; i++){
     	val_encoderA [i] = HIGH;
@@ -955,16 +938,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PC1 PC7 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_7;
+  /*Configure GPIO pins : PC1 PC7 PC10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_7|GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA0 PA1 PA9 PA13 
-                           PA14 PA15 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_9|GPIO_PIN_13 
-                          |GPIO_PIN_14|GPIO_PIN_15;
+  /*Configure GPIO pins : PA0 PA1 PA13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -1025,9 +1006,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PD4 PD5 PD6 PD7 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
+  /*Configure GPIO pins : PD4 PD6 PD7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_6|GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PD5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
