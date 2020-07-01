@@ -407,6 +407,9 @@ void Joint_controller(bool homing, creal_T* G_q_vector){
 			PWM_val[k] = 1024;
 		}
 	}
+	PWM1_change_duty_cycle(PWM_val[0], PWM_val[1]);
+	PWM2_change_duty_cycle(PWM_val[2]);
+	PWM3_change_duty_cycle(PWM_val[3], PWM_val[4], PWM_val[5]);
 
 }
 /* USER CODE END 0 */
