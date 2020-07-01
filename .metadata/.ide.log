@@ -15977,3 +15977,13 @@
 2020-07-01 12:51:35,553 [INFO] IPUIPlugin:65 - create IPUIPlugin
 2020-07-01 12:51:35,624 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] toolchainItems.length=====1
 2020-07-01 12:51:35,743 [INFO] OpenFileManager:294 - Restore cursor
+2020-07-01 14:47:49,302 [INFO] Activator:176 - 
+
+
+2020-07-01 14:47:49,306 [INFO] Activator:177 - !SESSION log4j initialized
+2020-07-01 14:47:55,359 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.prefix.1065548310 uses a null category that is invalid in its context. The option was ignored.
+2020-07-01 14:47:55,371 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.mcu.1874267699 uses a null category that is invalid in its context. The option was ignored.
+2020-07-01 14:47:55,383 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.board.1565757449 uses a null category that is invalid in its context. The option was ignored.
+2020-07-01 14:47:55,393 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.instructionSet.1150733637 uses a null category that is invalid in its context. The option was ignored.
+2020-07-01 14:47:55,401 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.fpu.629930458 uses a null category that is invalid in its context. The option was ignored.
+2020-07-01 14:47:55,411 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.floatabi.1756568771 uses a null category that is invalid in its context. The option was ignored.
