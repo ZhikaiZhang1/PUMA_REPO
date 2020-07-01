@@ -1,0 +1,8 @@
+G_q.obj
+G_q_data.obj
+G_q_initialize.obj
+G_q_terminate.obj
+exp.obj
+rtGetInf.obj
+rtGetNaN.obj
+rt_nonfinite.obj

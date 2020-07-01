@@ -29,6 +29,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include "stm32h7xx_hal_uart.h"
+#include "G_q.h"
+#include "G_q_terminate.h"
+#include "rt_nonfinite.h"
 
 /* USER CODE END Includes */
 
@@ -46,9 +49,24 @@ typedef struct PINS{
 #define HIGH 1U
 #define LOW  0U
 #define NUM_JOINTS 6
-#define REV_COUNT_1 17280
-#define REV_COUNT_2 5756
-#define REV_COUNT_3 115 //assumed, may not be correct
+#define REV_COUNT_1 17280.0
+#define REV_COUNT_2 5756.0
+#define REV_COUNT_3 115.0 //assumed, may not be correct
+#define G_CONSTANT -9.81
+#define PI 3.1415926
+const int K_P[] = {550, 550, 570, 1333, 1600, 700};
+const int K_V[] = {400, 230, 250, 1100, 600, 600};
+const double V_CONSTANT[] = {1.0456,1.0456,1.0456, 0.32,0.32, 0.00091};
+const double T_CONSTANT[] = {1.307, 1.307, 1.307, 0.5324, 0.5324, 0.089240515};
+const double RESISTANCE[] = {1.7, 1.7, 1.7, 5, 5, 5};
+const double test_pos[] = {3.1415926/2.0, 3.1415926/4.0, 3.1415926/3.0, 3.1415926/2.0, 3.1415926/5.0, 3.1415926};
+//for measuring CPU cycle
+#define  ARM_CM_DEMCR      (*(uint32_t *)0xE000EDFC)
+
+#define  ARM_CM_DWT_CTRL   (*(uint32_t *)0xE0001000)
+
+#define  ARM_CM_DWT_CYCCNT (*(uint32_t *)0xE0001004)
+
 
 /* USER CODE END PD */
 
@@ -77,6 +95,9 @@ volatile bool direction [6] = {true};
 volatile bool need_control  = true;
 volatile double joint_speed[6] = {0};
 volatile int delta_pos [6] = {0};
+volatile double current_angle[6] = {0};
+double backemf [6] = {0};
+double desired_pos[6] = {0};
 //pins: 0,1,2,3,4,7 - PA0(PA15), PA1(PD5), PB2(PA9), PE3(PE4), PD4(PD3), PD7(PE2)
 // HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 PINS encoders[12];
@@ -127,9 +148,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 		  if(!direction[0]){
 			  motor_steps[0]++;
+			  delta_pos[0]++;
 		  }
 		  else{
 			  motor_steps[0]--;
+			  delta_pos[0]--;
 		  }
 		break;
 
@@ -151,9 +174,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 		  if(!direction[1]){
 			  motor_steps[1]++;
+			  delta_pos[1]++;
 		  }
 		  else{
 			  motor_steps[1]--;
+			  delta_pos[1]--;
 		  }
 		break;
 
@@ -175,9 +200,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 		  if(!direction[2]){
 			  motor_steps[2]++;
+			  delta_pos[2]++;
 		  }
 		  else{
 			  motor_steps[2]--;
+			  delta_pos[2]--;
 		  }
 		break;
 	case GPIO_PIN_3:
@@ -198,9 +225,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 		  if(!direction[3]){
 			  motor_steps[3]++;
+			  delta_pos[3]++;
 		  }
 		  else{
 			  motor_steps[3]--;
+			  delta_pos[3]--;
 		  }
 		break;
 	case GPIO_PIN_4:
@@ -221,9 +250,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 		  if(!direction[4]){
 			  motor_steps[4]++;
+			  delta_pos[4]++;
 		  }
 		  else{
 			  motor_steps[4]--;
+			  delta_pos[4]--;
 		  }
 		break;
 	case GPIO_PIN_7:
@@ -244,9 +275,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 		  if(!direction[5]){
 			  motor_steps[5]++;
+			  delta_pos[5]++;
 		  }
 		  else{
 			  motor_steps[5]--;
+			  delta_pos[5]--;
 		  }
 		break;
 	default:
@@ -338,13 +371,17 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	int j;
 	if (htim == &htim7){
 		for (j = 0; j < NUM_JOINTS; j++){
+
 			if (j <3){
+				current_angle[j] = (double)motor_steps[j] *2.0*3.1415926/REV_COUNT_1*2.0;
 				joint_speed[j] = (double)delta_pos[j] *2.0*3.1415926/REV_COUNT_1/0.01*2.0;
 			}
 			else if (j < 5){
+				current_angle[j] = (double)motor_steps[j] *2.0*3.1415926/REV_COUNT_2*2.0;
 				joint_speed[j] = (double)delta_pos[j] *2.0*3.1415926/REV_COUNT_2/0.01*2.0;
 			}
 			else{
+				current_angle[j] = (double)motor_steps[j] *2.0*3.1415926/REV_COUNT_3*2.0;
 				joint_speed[j] = (double)delta_pos[j] *2.0*3.1415926/REV_COUNT_3/0.01*2.0;
 			}
 			delta_pos[j] = 0;
@@ -354,7 +391,22 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	}
 }
 
-void Joint_controller(bool homing){
+
+void Joint_controller(bool homing, creal_T* G_q_vector){
+	int k;
+	int PWM_val [6] = {0};
+	double G_q_r [6] = {0};
+	G_q(G_CONSTANT, current_angle[2], current_angle[3], current_angle[4], current_angle[5], G_q_vector);
+	for (k = 0; k < NUM_JOINTS; k++){
+		G_q_r[k] = (double)G_q_vector[k].re;
+		backemf[k] = joint_speed[k] * V_CONSTANT[k];
+		G_q_r[k] *= 1024;
+		G_q_r[k] /= (12.0 - backemf[k])/RESISTANCE[k]*T_CONSTANT[k];
+		PWM_val[k] = G_q_r[k] + K_P[k] * (desired_pos[k] - current_angle[k]) - K_V[k] * joint_speed[k];
+		if (PWM_val[k] > 1024){
+			PWM_val[k] = 1024;
+		}
+	}
 
 }
 /* USER CODE END 0 */
@@ -369,10 +421,14 @@ int main(void)
 	char* msg = "Hello Nucleo Fun!\n\r";
 	char* EOL = "]\n\r";
 	char* EOJ = ", ";
-	char* timer_tester = "timed";
+	char* timer_tester = "timed\n\r";
 	char one_motor[10];
 	char print_string[60];
 	int i;
+	uint32_t  start;
+	uint32_t  stop;
+	uint32_t  delta;
+	creal_T G_q_vector[6];
 	//pins: 0,1,2,3,4,7 - PA0(PC10)y, PA1(PD5)y, PB2(PC7)y, PE3(PE4)y, PD4(PD3)y, PD7(PE2)y
 	// HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 	encoders[0].port = GPIOA; encoders[0].pin_num = GPIO_PIN_0;
@@ -392,6 +448,18 @@ int main(void)
     	val_encoderA [i] = HIGH;
     	val_encoderB [i] = HIGH;
     	direction [i] = true;
+    	desired_pos[i] = test_pos[i];
+    }
+
+    //for CPU cycle counts
+    if (ARM_CM_DWT_CTRL != 0) {        // See if DWT is available
+
+        ARM_CM_DEMCR      |= 1 << 24;  // Set bit 24
+
+        ARM_CM_DWT_CYCCNT  = 0;
+
+        ARM_CM_DWT_CTRL   |= 1 << 0;   // Set bit 0
+
     }
 
   /* USER CODE END 1 */
@@ -449,7 +517,10 @@ int main(void)
 		  HAL_Delay(2);
 	  }
 	  if (need_control){
-		  Joint_controller(false);
+		  start = ARM_CM_DWT_CYCCNT;
+		  Joint_controller(false, G_q_vector);
+		  stop  = ARM_CM_DWT_CYCCNT;
+		  delta = stop - start;
 		  need_control = false;
 		  //CDC_Transmit_FS((uint8_t*)timer_tester, strlen(timer_tester));
 		  //HAL_Delay(1);
@@ -458,6 +529,7 @@ int main(void)
 	  //HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), 100);
 	  //CDC_Transmit_FS(msg, sizeof(msg));
   }
+  G_q_terminate();
   /* USER CODE END 3 */
 }
 

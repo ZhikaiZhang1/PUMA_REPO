@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="PWM3_change_duty_cycle"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="HAL_TIM_Base_Start_IT"/>
+			<item value="TIM_HandleTypeDef"/>
+			<item value="REV_COUNT_1"/>
+			<item value="TimeBase"/>
 			<item value="PWM3_change_duty_cycle"/>
 			<item value="pc1"/>
 			<item value="motor_steps"/>
@@ -19,10 +23,6 @@
 			<item value="huart3"/>
 			<item value="uart"/>
 			<item value="HAL_UART_MspInit"/>
-			<item value="usart"/>
-			<item value="HAL_GPIO_ReadPin"/>
-			<item value="Task"/>
-			<item value="sConfigOC"/>
 		</list>
 		<list key="replacehistory">
 		</list>
