@@ -493,7 +493,7 @@ int main(void)
   MX_USB_DEVICE_Init();
   MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
-  PWM3_change_duty_cycle(1024, 500, 100);
+  //PWM3_change_duty_cycle(1024, 500, 100);
   /* USER CODE END 2 */
 
   /* Infinite loop */
