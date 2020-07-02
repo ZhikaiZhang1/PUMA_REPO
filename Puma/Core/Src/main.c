@@ -101,6 +101,9 @@ double desired_pos[6] = {0};
 //pins: 0,1,2,3,4,7 - PA0(PA15), PA1(PD5), PB2(PA9), PE3(PE4), PD4(PD3), PD7(PE2)
 // HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 PINS encoders[12];
+//PE0, PF11, PG8, PG5, PF15, PD10, PG4, PE10, PE12, PD11, PD12, PD13
+PINS Driver_P [6];
+PINS Driver_N [6];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -287,6 +290,38 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	}
 }
 
+void set_up_encoder_pins(void){
+	//pins: 0,1,2,3,4,7 - PA0(PC10)y, PA1(PD5)y, PB2(PC7)y, PE3(PE4)y, PD4(PD3)y, PD7(PE2)y
+	// HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+	encoders[0].port = GPIOA; encoders[0].pin_num = GPIO_PIN_0;
+	encoders[1].port = GPIOC; encoders[1].pin_num = GPIO_PIN_10;
+	encoders[2].port = GPIOA; encoders[2].pin_num = GPIO_PIN_1;
+	encoders[3].port = GPIOD; encoders[3].pin_num = GPIO_PIN_5;
+	encoders[4].port = GPIOB; encoders[4].pin_num = GPIO_PIN_2;
+	encoders[5].port = GPIOC; encoders[5].pin_num = GPIO_PIN_7;
+	encoders[6].port = GPIOE; encoders[6].pin_num = GPIO_PIN_3;
+	encoders[7].port = GPIOE; encoders[7].pin_num = GPIO_PIN_4;
+	encoders[8].port = GPIOD; encoders[8].pin_num = GPIO_PIN_4;
+	encoders[9].port = GPIOD; encoders[9].pin_num = GPIO_PIN_3;
+	encoders[10].port = GPIOD; encoders[10].pin_num = GPIO_PIN_7;
+    encoders[11].port = GPIOE; encoders[11].pin_num = GPIO_PIN_2;
+}
+void set_up_driver_pins(void){
+	//PE0, PF11, PG8, PG5, PF15, PD10, PG4, PE10, PE12, PD11, PD12, PD13
+	Driver_P[0].port = GPIOE; Driver_P[0].pin_num = GPIO_PIN_0;
+	Driver_N[0].port = GPIOF; Driver_N[0].pin_num = GPIO_PIN_11;
+	Driver_P[1].port = GPIOG; Driver_P[1].pin_num = GPIO_PIN_8;
+	Driver_N[1].port = GPIOG; Driver_N[1].pin_num = GPIO_PIN_5;
+	Driver_P[2].port = GPIOF; Driver_P[2].pin_num = GPIO_PIN_15;
+	Driver_N[2].port = GPIOD; Driver_N[3].pin_num = GPIO_PIN_10;
+	Driver_P[3].port = GPIOG; Driver_P[3].pin_num = GPIO_PIN_4;
+	Driver_N[3].port = GPIOE; Driver_N[3].pin_num = GPIO_PIN_10;
+	Driver_P[4].port = GPIOE; Driver_P[4].pin_num = GPIO_PIN_12;
+	Driver_N[4].port = GPIOD; Driver_N[4].pin_num = GPIO_PIN_11;
+	Driver_P[5].port = GPIOD; Driver_P[5].pin_num = GPIO_PIN_12;
+	Driver_N[5].port = GPIOD; Driver_N[5].pin_num = GPIO_PIN_13;
+}
+
 void PWM3_change_duty_cycle (int valuePA6, int valuePB1, int valuePA7){
 	TIM_OC_InitTypeDef sConfigOC = {0};
 	sConfigOC.OCMode = TIM_OCMODE_PWM1;
@@ -398,6 +433,7 @@ void Joint_controller(bool homing, creal_T* G_q_vector){
 	double G_q_r [6] = {0};
 	G_q(G_CONSTANT, current_angle[2], current_angle[3], current_angle[4], current_angle[5], G_q_vector);
 	for (k = 0; k < NUM_JOINTS; k++){
+		//set duty cycle with PD+Gravity control
 		G_q_r[k] = (double)G_q_vector[k].re;
 		backemf[k] = joint_speed[k] * V_CONSTANT[k];
 		G_q_r[k] *= 1024;
@@ -406,11 +442,30 @@ void Joint_controller(bool homing, creal_T* G_q_vector){
 		if (PWM_val[k] > 1024){
 			PWM_val[k] = 1024;
 		}
+		else if (PWM_val[k] < -1024){
+			PWM_val[k] = -1024;
+		}
+
+		//set directions
+		if (PWM_val[k] < 0){
+			HAL_GPIO_WritePin(Driver_P[k].port, Driver_P[k].pin_num, 0);
+			HAL_GPIO_WritePin(Driver_N[k].port, Driver_N[k].pin_num, 1);
+		}
+		else if (PWM_val[k] > 0){
+			HAL_GPIO_WritePin(Driver_P[k].port, Driver_P[k].pin_num, 1);
+			HAL_GPIO_WritePin(Driver_N[k].port, Driver_N[k].pin_num, 0);
+		}
+		else{
+			HAL_GPIO_WritePin(Driver_P[k].port, Driver_P[k].pin_num, 0);
+			HAL_GPIO_WritePin(Driver_N[k].port, Driver_N[k].pin_num, 0);
+		}
+
 	}
 	PWM1_change_duty_cycle(PWM_val[0], PWM_val[1]);
 	PWM2_change_duty_cycle(PWM_val[2]);
 	PWM3_change_duty_cycle(PWM_val[3], PWM_val[4], PWM_val[5]);
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -431,20 +486,10 @@ int main(void)
 	uint32_t  stop;
 	uint32_t  delta;
 	creal_T G_q_vector[6];
-	//pins: 0,1,2,3,4,7 - PA0(PC10)y, PA1(PD5)y, PB2(PC7)y, PE3(PE4)y, PD4(PD3)y, PD7(PE2)y
-	// HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
-	encoders[0].port = GPIOA; encoders[0].pin_num = GPIO_PIN_0;
-	encoders[1].port = GPIOC; encoders[1].pin_num = GPIO_PIN_10;
-	encoders[2].port = GPIOA; encoders[2].pin_num = GPIO_PIN_1;
-	encoders[3].port = GPIOD; encoders[3].pin_num = GPIO_PIN_5;
-	encoders[4].port = GPIOB; encoders[4].pin_num = GPIO_PIN_2;
-	encoders[5].port = GPIOC; encoders[5].pin_num = GPIO_PIN_7;
-	encoders[6].port = GPIOE; encoders[6].pin_num = GPIO_PIN_3;
-	encoders[7].port = GPIOE; encoders[7].pin_num = GPIO_PIN_4;
-	encoders[8].port = GPIOD; encoders[8].pin_num = GPIO_PIN_4;
-	encoders[9].port = GPIOD; encoders[9].pin_num = GPIO_PIN_3;
-	encoders[10].port = GPIOD; encoders[10].pin_num = GPIO_PIN_7;
-    encoders[11].port = GPIOE; encoders[11].pin_num = GPIO_PIN_2;
+
+	//setting up pins
+	set_up_encoder_pins();
+	set_up_driver_pins();
 
     for(i = 0; i < NUM_JOINTS; i++){
     	val_encoderA [i] = HIGH;
@@ -990,10 +1035,19 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOG_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOF, GPIO_PIN_11|GPIO_PIN_15, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_10|GPIO_PIN_12|GPIO_PIN_0, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(USB_PowerSwitchOn_GPIO_Port, USB_PowerSwitchOn_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_13, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_4|GPIO_PIN_5|USB_PowerSwitchOn_Pin|GPIO_PIN_8, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PE2 PE4 */
   GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_4;
@@ -1053,6 +1107,27 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PF11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PF15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_15;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PE10 PE12 PE0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_12|GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
   /*Configure GPIO pin : RMII_TXD1_Pin */
   GPIO_InitStruct.Pin = RMII_TXD1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -1067,6 +1142,20 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PD10 PD11 PD12 PD13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PG4 PG5 PG8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
   /*Configure GPIO pin : USB_PowerSwitchOn_Pin */
   GPIO_InitStruct.Pin = USB_PowerSwitchOn_Pin;
