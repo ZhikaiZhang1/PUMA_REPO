@@ -42,6 +42,11 @@ typedef struct PINS{
 	uint16_t  pin_num;
 }PINS;
 
+typedef struct HOME{
+	double coords[6];
+	bool home_set;
+}HOME;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -98,6 +103,7 @@ volatile int delta_pos [6] = {0};
 volatile double current_angle[6] = {0};
 double backemf [6] = {0};
 double desired_pos[6] = {0};
+
 //pins: 0,1,2,3,4,7 - PA0(PA15), PA1(PD5), PB2(PA9), PE3(PE4), PD4(PD3), PD7(PE2)
 // HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 PINS encoders[12];
@@ -464,6 +470,10 @@ void Joint_controller(bool homing, creal_T* G_q_vector){
 	PWM1_change_duty_cycle(PWM_val[0], PWM_val[1]);
 	PWM2_change_duty_cycle(PWM_val[2]);
 	PWM3_change_duty_cycle(PWM_val[3], PWM_val[4], PWM_val[5]);
+}
+
+void homing (void){
+
 }
 
 /* USER CODE END 0 */
