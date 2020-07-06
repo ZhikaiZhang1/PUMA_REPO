@@ -103,6 +103,9 @@ volatile int delta_pos [6] = {0};
 volatile double current_angle[6] = {0};
 double backemf [6] = {0};
 double desired_pos[6] = {0};
+bool start_up = true;
+bool homing_state [5] = {false};
+bool start_state = true;
 
 //pins: 0,1,2,3,4,7 - PA0(PA15), PA1(PD5), PB2(PA9), PE3(PE4), PD4(PD3), PD7(PE2)
 // HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
@@ -110,6 +113,9 @@ PINS encoders[12];
 //PE0, PF11, PG8, PG5, PF15, PD10, PG4, PE10, PE12, PD11, PD12, PD13
 PINS Driver_P [6];
 PINS Driver_N [6];
+
+//Homing coords
+HOME Homing;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -136,7 +142,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		GPIO_TypeDef* port;
 		uint16_t  pin_num;
     }PINS;*/
-	//pins: 0,1,2,3,4,7 - PA0(PC10)y, PA1(PD5)y, PB2(PC7)y, PE3(PE4)y, PD4(PD3)y, PD7(PE2)y
+	//encoder pins: 0,1,2,3,4,7 - PA0(PC10)y, PA1(PD5)y, PB2(PC7)y, PE3(PE4)y, PD4(PD3)y, PD7(PE2)y
+	//homing pins: PE5, PF6, 8, 9, 10
 	// HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 	switch (GPIO_Pin){
 	case GPIO_PIN_0:
@@ -290,6 +297,26 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 			  motor_steps[5]--;
 			  delta_pos[5]--;
 		  }
+		break;
+	case GPIO_PIN_5:
+		desired_pos[0] = (double)motor_steps[0] *2.0*3.1415926/REV_COUNT_1*2.0;
+		homing_state[0] = true;
+		break;
+	case GPIO_PIN_6:
+		desired_pos[1] = (double)motor_steps[1] *2.0*3.1415926/REV_COUNT_1*2.0;
+		homing_state[1] = true;
+		break;
+	case GPIO_PIN_8:
+		desired_pos[2] = (double)motor_steps[2] *2.0*3.1415926/REV_COUNT_1*2.0;
+		homing_state[2] = true;
+		break;
+	case GPIO_PIN_9:
+		desired_pos[3] = (double)motor_steps[3] *2.0*3.1415926/REV_COUNT_2*2.0;
+		homing_state[3] = true;
+		break;
+	case GPIO_PIN_10:
+		desired_pos[4] = (double)motor_steps[4] *2.0*3.1415926/REV_COUNT_2*2.0;
+		homing_state[4] = true;
 		break;
 	default:
 		break;
@@ -456,6 +483,7 @@ void Joint_controller(bool homing, creal_T* G_q_vector){
 		if (PWM_val[k] < 0){
 			HAL_GPIO_WritePin(Driver_P[k].port, Driver_P[k].pin_num, 0);
 			HAL_GPIO_WritePin(Driver_N[k].port, Driver_N[k].pin_num, 1);
+			PWM_val[k] = 0-PWM_val[k];
 		}
 		else if (PWM_val[k] > 0){
 			HAL_GPIO_WritePin(Driver_P[k].port, Driver_P[k].pin_num, 1);
@@ -473,7 +501,24 @@ void Joint_controller(bool homing, creal_T* G_q_vector){
 }
 
 void homing (void){
+	//start_state = false;
+	// need to set to false, don't forget
+	/*int g = 0;
+	for (g = 0; g < NUM_JOINTS; g++){
+		current_angle[g] = 0;
+		motor_steps[g] = 0;
+	}*/
+	//after everything is finished for homing it will set all coords to 0
 
+	start_state = false;
+
+}
+void StartUp(void){
+
+	//spin motors
+	PWM1_change_duty_cycle(500, 500);
+	PWM2_change_duty_cycle(500);
+	PWM3_change_duty_cycle(500, 500, 0);
 }
 
 /* USER CODE END 0 */
@@ -507,7 +552,7 @@ int main(void)
     	direction [i] = true;
     	desired_pos[i] = test_pos[i];
     }
-
+    Homing.home_set = false;
     //for CPU cycle counts
     if (ARM_CM_DWT_CTRL != 0) {        // See if DWT is available
 
@@ -558,6 +603,16 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  start_up = !(homing_state[0] && homing_state[1] && homing_state[2] && homing_state[3] && homing_state[4]) && start_state;
+	  Homing.home_set = (homing_state[0] && homing_state[1] && homing_state[2] && homing_state[3] && homing_state[4]) && start_state;
+	  if (Homing.home_set){
+		  homing();
+		  break;
+	  }
+	  else if (start_up){
+		  StartUp();
+		  break;
+	  }
 	  //printf(msg);
 	  if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)){
 		  itoa(motor_steps[0], one_motor, 10);
@@ -1071,11 +1126,23 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PE5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PF6 PF8 PF9 PF10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PF7 */
   GPIO_InitStruct.Pin = GPIO_PIN_7;
@@ -1192,8 +1259,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PD4 PD6 PD7 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_6|GPIO_PIN_7;
+  /*Configure GPIO pins : PD4 PD7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
