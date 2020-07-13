@@ -13,7 +13,6 @@ RM := rm -rf
 -include Middlewares/ST/STM32_USB_Device_Library/Core/Src/subdir.mk
 -include Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/subdir.mk
 -include Drivers/STM32H7xx_HAL_Driver/Src/subdir.mk
--include Core/external/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include subdir.mk
@@ -45,8 +44,8 @@ Puma.bin \
 all: Puma.elf secondary-outputs
 
 # Tool invocations
-Puma.elf: $(OBJS) $(USER_OBJS) C:\Users\zhika\Desktop\Third\ Year\ELEC\ 442\puma\ control\PUMA_REPO\Puma\STM32H743ZITX_FLASH.ld
-	arm-none-eabi-gcc -o "Puma.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\Puma\STM32H743ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Puma.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Puma.elf: $(OBJS) $(USER_OBJS)
+	arm-none-eabi-gcc -o "Puma.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 --specs=nosys.specs -Wl,-Map="Puma.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
