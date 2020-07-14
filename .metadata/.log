@@ -6572,3 +6572,18 @@ java.lang.RuntimeException
 
 !ENTRY org.eclipse.cdt.core 1 0 2020-07-12 19:55:58.152
 !MESSAGE Indexed 'Puma' (37 sources, 130 headers) in 2.59 sec: 13,478 declarations; 90,245 references; 2 unresolved inclusions; 29 syntax errors; 145 unresolved names (0.14%)
+!SESSION 2020-07-13 22:26:14.562 -----------------------------------------------
+eclipse.buildId=Version 1.3.1
+java.version=1.8.0_202
+java.vendor=AdoptOpenJdk
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-07-13 22:26:32.836
+!MESSAGE Log4j initialized with config file C:\Users\zhika\Desktop\Third Year\ELEC 442\puma control\PUMA_REPO\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-07-13 22:26:45.486
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-07-13 22:26:46.612
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
