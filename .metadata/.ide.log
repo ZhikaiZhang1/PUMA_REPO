@@ -17106,3 +17106,8 @@
 
 
 2020-07-13 22:26:32,850 [INFO] Activator:177 - !SESSION log4j initialized
+2020-07-14 11:59:48,158 [INFO] Activator:176 - 
+
+
+2020-07-14 11:59:48,163 [INFO] Activator:177 - !SESSION log4j initialized
+2020-07-14 12:30:34,023 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: 00024140 r 
