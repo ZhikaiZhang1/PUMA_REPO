@@ -36,9 +36,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h \
  ../USB_DEVICE/App/usb_device.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- ../USB_DEVICE/Target/usbd_conf.h ../Core/Src/G_q.h \
- ../Core/Src/rtwtypes.h ../Core/Src/tmwtypes.h ../Core/Src/G_q_types.h \
- ../Core/Src/G_q_terminate.h ../Core/Src/rt_nonfinite.h
+ ../USB_DEVICE/Target/usbd_conf.h ../../G_q_lib/G_q.h \
+ ../../G_q_lib/rtwtypes.h ../../G_q_lib/tmwtypes.h \
+ ../../G_q_lib/G_q_types.h ../../G_q_lib/G_q_terminate.h \
+ ../../G_q_lib/rt_nonfinite.h
 
 ../Core/Inc/main.h:
 
@@ -118,14 +119,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../USB_DEVICE/Target/usbd_conf.h:
 
-../Core/Src/G_q.h:
+../../G_q_lib/G_q.h:
 
-../Core/Src/rtwtypes.h:
+../../G_q_lib/rtwtypes.h:
 
-../Core/Src/tmwtypes.h:
+../../G_q_lib/tmwtypes.h:
 
-../Core/Src/G_q_types.h:
+../../G_q_lib/G_q_types.h:
 
-../Core/Src/G_q_terminate.h:
+../../G_q_lib/G_q_terminate.h:
 
-../Core/Src/rt_nonfinite.h:
+../../G_q_lib/rt_nonfinite.h:

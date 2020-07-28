@@ -3,13 +3,4 @@
 	<section name="ExternalProjectImportWizard">
 		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
 	</section>
-	<section name="SmartImportWizard">
-		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
-		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
-		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
-		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
-		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
-			<item value="C:\Users\zhika\STM32Cube\Repository\STM32Cube_FW_H7_V1.7.0\Projects\NUCLEO-H743ZI\Examples\GPIO\GPIO_EXTI\SW4STM32\STM32H743ZI_Nucleo"/>
-		</list>
-	</section>
 </section>

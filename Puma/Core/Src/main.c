@@ -249,7 +249,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		  }
 		break;
 	case GPIO_PIN_4:
-		 Lstate[4] = HAL_GPIO_ReadPin(encoders[8].port, encoders[9].pin_num);
+		 Lstate[4] = HAL_GPIO_ReadPin(encoders[8].port, encoders[8].pin_num);
 		  if((val_encoderA[4] == LOW) && Lstate[4]==HIGH)
 		  {
 			val_encoderB[4] = HAL_GPIO_ReadPin(encoders[9].port, encoders[9].pin_num);
@@ -607,11 +607,11 @@ int main(void)
 	  Homing.home_set = (homing_state[0] && homing_state[1] && homing_state[2] && homing_state[3] && homing_state[4]) && start_state;
 	  if (Homing.home_set){
 		  homing();
-		  break;
+
 	  }
 	  else if (start_up){
 		  StartUp();
-		  break;
+
 	  }
 	  //printf(msg);
 	  if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)){
