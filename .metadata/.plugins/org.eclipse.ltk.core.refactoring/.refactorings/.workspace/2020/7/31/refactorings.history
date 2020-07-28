@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Puma/Core/Src/Glib/examples&apos;" deleteContents="false" description="Delete resource &apos;Puma/Core/Src/Glib/examples&apos;" element1="/Puma/Core/Src/Glib/examples" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1595896476000"/>&#x0A;<refactoring comment="Delete resource &apos;Puma/Core/Src/Glib/interface&apos;" deleteContents="false" description="Delete resource &apos;Puma/Core/Src/Glib/interface&apos;" element1="/Puma/Core/Src/Glib/interface" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1595896518002"/>
-</session>
