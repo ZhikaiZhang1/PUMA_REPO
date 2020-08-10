@@ -5,7 +5,7 @@
  * File: _coder_G_q_info.c
  *
  * MATLAB Coder version            : 4.3
- * C/C++ source code generated on  : 30-Jun-2020 16:12:35
+ * C/C++ source code generated on  : 04-Aug-2020 16:22:19
  */
 
 /* Include Files */
@@ -93,7 +93,7 @@ mxArray *emlrtMexFcnProperties(void)
   emlrtSetField(xEntryPoints, 0, "FullPath", emlrtMxCreateString(
     "C:\\Users\\zhika\\Desktop\\Third Year\\ELEC 442\\puma control\\G_q.m"));
   emlrtSetField(xEntryPoints, 0, "TimeStamp", emlrtMxCreateDoubleScalar
-                (737972.66648148152));
+                (738007.681550926));
   xResult = emlrtCreateStructMatrix(1, 1, 4, propFieldName);
   emlrtSetField(xResult, 0, "Version", emlrtMxCreateString(
     "9.7.0.1247435 (R2019b) Update 2"));

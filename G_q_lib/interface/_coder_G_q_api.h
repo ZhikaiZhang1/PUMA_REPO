@@ -5,7 +5,7 @@
  * File: _coder_G_q_api.h
  *
  * MATLAB Coder version            : 4.3
- * C/C++ source code generated on  : 30-Jun-2020 16:12:35
+ * C/C++ source code generated on  : 04-Aug-2020 16:22:19
  */
 
 #ifndef _CODER_G_Q_API_H

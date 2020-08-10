@@ -2,7 +2,7 @@
 ## Makefile generated for MATLAB file/project 'G_q'. 
 ## 
 ## Makefile     : G_q_rtw.mk
-## Generated on : Tue Jun 30 16:12:50 2020
+## Generated on : Tue Aug 04 16:22:36 2020
 ## MATLAB Coder version: 4.3 (R2019b)
 ## 
 ## Build Info:
