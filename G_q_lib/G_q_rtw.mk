@@ -2,7 +2,7 @@
 ## Makefile generated for MATLAB file/project 'G_q'. 
 ## 
 ## Makefile     : G_q_rtw.mk
-## Generated on : Tue Aug 04 16:22:36 2020
+## Generated on : Fri Aug 21 13:29:20 2020
 ## MATLAB Coder version: 4.3 (R2019b)
 ## 
 ## Build Info:
@@ -46,8 +46,8 @@ MODELLIB                  = G_q.lib
 ## TOOLCHAIN SPECIFICATIONS
 ###########################################################################
 
-# Toolchain Name:          Microsoft Visual C++ 2017 v15.0 | nmake (64-bit Windows)
-# Supported Version(s):    15.0
+# Toolchain Name:          Microsoft Visual C++ 2019 v16.0 | nmake (64-bit Windows)
+# Supported Version(s):    16.0
 # ToolchainInfo Version:   2019b
 # Specification Revision:  1.0
 # 
