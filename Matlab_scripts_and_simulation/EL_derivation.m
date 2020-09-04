@@ -1,5 +1,3 @@
- %still need to get the inertia tensor for the links, which i still need to
- %do and idk if that is gonna be bad or nah
  clear all;
  syms g t;
  syms theta1 theta2 theta3 theta4 theta5 theta6;
